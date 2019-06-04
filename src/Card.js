@@ -11,7 +11,7 @@ import {
 } from './utilities';
 
 /**
- * @param {number} fromX
+ * @param {umber} fromX
  * @param {number} fromY
  * @param {Direction[]} allowedDirections
  * @returns {Direction[]} computed direction
@@ -91,9 +91,9 @@ const Card = (stack, targetElement, prepend) => {
     mc = new Hammer.Manager(targetElement, {
       recognizers: [
         [
-          Hammer.Pan,
-          {
-            threshold: 2
+          Hammer.Pan, {
+            direction: config.dragDirection ? Hammer['DIRECTION_' + config.dragDirection.toUpperCase()] : Hammer.DIRECTION_ALL,
+            threshold: 10
           }
         ]
       ]
