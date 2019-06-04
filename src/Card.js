@@ -93,7 +93,7 @@ const Card = (stack, targetElement, prepend) => {
         [
           Hammer.Pan, {
             direction: config.dragDirection ? Hammer['DIRECTION_' + config.dragDirection.toUpperCase()] : Hammer.DIRECTION_ALL,
-            threshold: 10
+            threshold: config.threshold || 10
           }
         ]
       ]
@@ -360,6 +360,7 @@ const Card = (stack, targetElement, prepend) => {
    * Alias
    */
   card.on = eventEmitter.on;
+  card.off = eventEmitter.off;
   card.trigger = eventEmitter.trigger;
 
   /**
